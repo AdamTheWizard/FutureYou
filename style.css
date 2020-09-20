@@ -1,0 +1,407 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: fixed;
+  z-index: 10;
+}
+
+.slide-menu-container {
+  background: #000000;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.slide-menu-container.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.slide-menu-container ul {
+  text-align: center;
+  list-style: none;
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 50px;
+  font-weight: 100;
+}
+
+.slide-menu-container ul .menu-item {
+  color: #FFFFFF;
+  margin-top: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.slide-menu-container ul .menu-item:hover {
+  letter-spacing: 6px;
+  text-shadow: 2px 2px 1px cyan, -2px -2px 1px red;
+}
+
+.slide-menu-container ul input {
+  background: #000;
+  color: #FFFFFF;
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 35px;
+  padding: 10px 50px 10px 5px;
+  border: none;
+  border-bottom: 2px solid #fff;
+}
+
+.slide-menu-container ul input:focus, .slide-menu-container ul input:active {
+  outline: none;
+}
+
+.content-container {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.content-container .title-container {
+  margin-top: 15vh;
+  width: 100%;
+}
+
+.content-container .title-container .glitch {
+  position: relative;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 150px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
+
+@media (max-width: 768px) {
+  .content-container .title-container .glitch {
+    font-size: 50px;
+  }
+}
+
+.content-container .title-container .glitch::before, .content-container .title-container .glitch::after {
+  content: "FUTURE YOU";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-size: 150px;
+  clip: rect(0, 900px, 0, 0);
+}
+
+@media (max-width: 768px) {
+  .content-container .title-container .glitch::before, .content-container .title-container .glitch::after {
+    font-size: 50px;
+  }
+}
+
+.content-container .title-container .glitch::before {
+  left: 5px;
+  text-shadow: 3px 0 rgba(0, 0, 255, 0.2);
+  animation: glitch-effect 3s infinite linear alternate-reverse;
+}
+
+.content-container .title-container .glitch::after {
+  left: 2px;
+  text-shadow: -3px 0 #E94D4E;
+  animation: glitch-effect 2s infinite linear alternate-reverse;
+}
+
+.content-container .countdown-container {
+  margin-top: 15vh;
+  color: #FFFFFF;
+  font-size: 50px;
+  font-family: "Source Code Pro", sans-serif;
+  text-transform: uppercase;
+  font-weight: 100;
+  text-align: center;
+}
+
+.content-container .countdown-container .countdown {
+  margin-top: 25px;
+}
+
+@media (max-width: 768px) {
+  .content-container .countdown-container {
+    font-size: 25px;
+  }
+}
+
+.content-container .button-container {
+  width: 100%;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.content-container .button-container .remind-me-button {
+  padding: 15px 50px;
+  background: #000000;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  font-size: 30px;
+  font-family: "Source Code Pro", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.content-container .button-container .remind-me-button:hover {
+  color: #000000;
+  background: #FFFFFF;
+}
+
+@-webkit-keyframes glitch-effect {
+  0% {
+    clip: rect(18px, 9999px, 40px, 0);
+  }
+  5% {
+    clip: rect(5px, 9999px, 113px, 0);
+  }
+  10% {
+    clip: rect(81px, 9999px, 44px, 0);
+  }
+  15% {
+    clip: rect(19px, 9999px, 13px, 0);
+  }
+  20% {
+    clip: rect(50px, 9999px, 82px, 0);
+  }
+  25% {
+    clip: rect(68px, 9999px, 12px, 0);
+  }
+  30% {
+    clip: rect(83px, 9999px, 24px, 0);
+  }
+  35% {
+    clip: rect(50px, 9999px, 11px, 0);
+  }
+  40% {
+    clip: rect(83px, 9999px, 24px, 0);
+  }
+  45% {
+    clip: rect(100px, 9999px, 53px, 0);
+  }
+  50% {
+    clip: rect(64px, 9999px, 114px, 0);
+  }
+  55% {
+    clip: rect(67px, 9999px, 36px, 0);
+  }
+  60% {
+    clip: rect(7px, 9999px, 87px, 0);
+  }
+  65% {
+    clip: rect(64px, 9999px, 4px, 0);
+  }
+  70% {
+    clip: rect(30px, 9999px, 99px, 0);
+  }
+  75% {
+    clip: rect(60px, 9999px, 60px, 0);
+  }
+  80% {
+    clip: rect(67px, 9999px, 12px, 0);
+  }
+  85% {
+    clip: rect(29px, 9999px, 43px, 0);
+  }
+  90% {
+    clip: rect(25px, 9999px, 63px, 0);
+  }
+  95% {
+    clip: rect(27px, 9999px, 86px, 0);
+  }
+  100% {
+    clip: rect(99px, 9999px, 118px, 0);
+  }
+}
+
+@keyframes glitch-effect {
+  0% {
+    clip: rect(18px, 9999px, 40px, 0);
+  }
+  5% {
+    clip: rect(5px, 9999px, 113px, 0);
+  }
+  10% {
+    clip: rect(81px, 9999px, 44px, 0);
+  }
+  15% {
+    clip: rect(19px, 9999px, 13px, 0);
+  }
+  20% {
+    clip: rect(50px, 9999px, 82px, 0);
+  }
+  25% {
+    clip: rect(68px, 9999px, 12px, 0);
+  }
+  30% {
+    clip: rect(83px, 9999px, 24px, 0);
+  }
+  35% {
+    clip: rect(50px, 9999px, 11px, 0);
+  }
+  40% {
+    clip: rect(83px, 9999px, 24px, 0);
+  }
+  45% {
+    clip: rect(100px, 9999px, 53px, 0);
+  }
+  50% {
+    clip: rect(64px, 9999px, 114px, 0);
+  }
+  55% {
+    clip: rect(67px, 9999px, 36px, 0);
+  }
+  60% {
+    clip: rect(7px, 9999px, 87px, 0);
+  }
+  65% {
+    clip: rect(64px, 9999px, 4px, 0);
+  }
+  70% {
+    clip: rect(30px, 9999px, 99px, 0);
+  }
+  75% {
+    clip: rect(60px, 9999px, 60px, 0);
+  }
+  80% {
+    clip: rect(67px, 9999px, 12px, 0);
+  }
+  85% {
+    clip: rect(29px, 9999px, 43px, 0);
+  }
+  90% {
+    clip: rect(25px, 9999px, 63px, 0);
+  }
+  95% {
+    clip: rect(27px, 9999px, 86px, 0);
+  }
+  100% {
+    clip: rect(99px, 9999px, 118px, 0);
+  }
+}
+
+#menu-button {
+  z-index: 999;
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#menu-button span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #ffffff;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#menu-button span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#menu-button span:nth-child(2) {
+  top: 15px;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#menu-button span:nth-child(3) {
+  top: 30px;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#menu-button.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#menu-button.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#menu-button.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 30px;
+}
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  z-index: -1;
+}
+/*# sourceMappingURL=style.css.map */

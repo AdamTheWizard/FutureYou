@@ -1,0 +1,275 @@
+
+
+
+$primaryGlitchColor: #fff;
+$secondaryGlitchColor: #000;
+$steps: 20;
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  overflow-x: hidden;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    z-index: 10;
+}
+
+.slide-menu-container {
+    background: #000000;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    align-items: center;
+    justify-content: center;
+    transition: 1s;
+    &.open {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    ul {
+        text-align: center;
+        list-style: none;
+        font-family: "Source Code Pro", sans-serif;
+        font-size: 50px;
+        font-weight: 100;
+        .menu-item {
+            color: #FFFFFF;
+            margin-top: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: .3s;
+            &:hover {
+                letter-spacing: 6px;
+                text-shadow:  2px 2px 1px cyan, -2px -2px 1px red;
+            }
+        }
+
+        input {
+            background: #000;
+            color: #FFFFFF;
+            font-family: "Source Code Pro", sans-serif;
+            font-size: 35px;
+            padding: 10px 50px 10px 5px;
+            border: none;
+            border-bottom: 2px solid #fff;
+            &:focus, &:active {
+                outline: none;
+            }
+        }
+    }
+}
+
+.content-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap:wrap;
+    .title-container {
+        margin-top: 15vh;
+        width: 100%;
+        .glitch {
+            position: relative;
+            margin: 0 auto;
+            color: $primaryGlitchColor;
+            font-size: 150px;
+            font-family: "Montserrat", sans-serif; 
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            transform: scale3d(1,1,1);
+
+            @media (max-width: 768px) {
+                font-size: 50px;
+            }
+        
+
+            &::before,
+            &::after {
+                content: "FUTURE YOU";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                overflow: hidden;
+                background: $secondaryGlitchColor;
+                color: $primaryGlitchColor;
+                font-size: 150px;
+                clip: rect(0, 900px, 0, 0);
+                @media (max-width: 768px) {
+                    font-size: 50px;
+                }
+            }
+            &::before {
+                left: 5px;
+                text-shadow: 3px 0 rgba(0,0,255,.2);
+                animation: glitch-effect 3s infinite linear alternate-reverse;
+            }
+            &::after {
+                left: 2px;
+                text-shadow: -3px 0 #E94D4E;
+                animation: glitch-effect 2s infinite linear alternate-reverse;
+            }
+        }
+    }
+    .countdown-container {
+        margin-top: 15vh;
+        color: #FFFFFF;
+        font-size: 50px;
+        font-family: "Source Code Pro", sans-serif;
+        text-transform: uppercase;
+        font-weight: 100;
+        text-align: center;
+        .countdown {
+            margin-top: 25px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 25px;
+        }
+    }
+
+    .button-container {
+        width: 100%;
+        margin-top: 100px;
+        text-align: center;
+
+        .remind-me-button {
+            padding: 15px 50px;
+            background: #000000;
+            color: #FFFFFF;
+            border: 1px solid #FFFFFF;
+            font-size: 30px;
+            font-family: "Source Code Pro", sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                color: #000000;
+                background: #FFFFFF;
+            }
+        }
+    }
+}
+@keyframes glitch-effect{
+  
+    @for $i from 0 through $steps{
+        #{percentage($i*(1/$steps))}{
+            clip:rect(random(100)+px,9999px,random(125)+px,0);
+        }
+    }
+    
+}
+
+#menu-button {
+    z-index: 999;
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #ffffff;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0px;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      -o-transform-origin: left center;
+      transform-origin: left center;
+    }
+    &:nth-child(2) {
+      top: 15px;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      -o-transform-origin: left center;
+      transform-origin: left center;
+    }
+    &:nth-child(3) {
+      top: 30px;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      -o-transform-origin: left center;
+      transform-origin: left center;
+    }
+  }
+}
+
+#menu-button.open {
+  span {
+    &:nth-child(1) {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    //   left: 15px;
+    }
+    &:nth-child(2) {
+      width: 0%;
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      top: 30px;
+    }
+  }
+}
+
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+    z-index: -1;
+}
